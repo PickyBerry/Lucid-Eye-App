@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">LucidEye</string>
+    <string name="permissions_not_granted">Permissions not granted by the user.</string>
+    <string name="tutorial_page1_line1">Thank you for using Lucid Eye! This is a free app designed to simulate color-blinded vision and assist color-blind people to differ the colors using real-time camera filters</string>
+    <string name="tutorial_page1_line2">\"You can select one of six filters using the menu at the bottom. First three filters simulate one of three types of color-blindness: Protanopia, Deuteranopia and Tritanopia  \"</string>
+    <string name="tutorial_page1_line3">(All filters presented here were applied using LucidEye app)</string>
+    <string name="tutorial_page2_line1">Images can be captured at any time or be uploaded from the gallery and have filters applied to them</string>
+    <string name="tutorial_page2_line2">If you are color-blind, you can select an assistance filter which will help you differ the colours</string>
+    <string name="tutorial_page3_line1">If you are doubting what colour you are looking at, you can turn on the colour picker which tells the real color you are looking at no matter what filter is on.</string>
+    <string name="saved_to_gallery">Saved image to gallery!</string>
+    <string name="lets_begin">LET\'S BEGIN!</string>
+    <string name="tutorial"><u>TUTORIAL</u></string>
+    <string-array name="filterNames">
+        <item>NORMAL VISION</item>
+        <item>PROTANOPES (RED-BLIND)</item>
+        <item>DEUTERANOPES (GREEN-BLIND)</item>
+        <item>TRITANOPES (BLUE-BLIND)</item>
+        <item>PROTANOPES ASSISTANCE</item>
+        <item>DEUTERANOPES ASSISTANCE</item>
+        <item>TRITANOPES ASSISTANCE</item>
+    </string-array>
+
+</resources>
