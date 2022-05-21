@@ -5,14 +5,15 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 
+import android.animation.ValueAnimator;
 import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-
 
 
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,7 @@ import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,6 +38,7 @@ import android.widget.Toast;
 
 
 import com.example.lucideye.R;
+import com.lucideye.lucideye.CircleView;
 import com.lucideye.lucideye.filter.AssistanceFilter;
 import com.lucideye.lucideye.filter.DeuteranopesSimFilter;
 import com.lucideye.lucideye.filter.ProtanopesSimFilter;
@@ -67,6 +70,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     private Bitmap savedBitmap;
     private TextView colorText;
     private View RootView;
+    private CircleView circleView;
     private float l, m, s;
     private String selectedFilter = "NORMAL VISION";
     private int currentRedFactor = 0;
@@ -153,10 +157,15 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                     camera.setFilter(tritanopesAssistanceFilter);
                 else {
                     camera.setFilter(new NoFilter());
-                if (!takingPhoto)  colorPickerButton.setVisibility(VISIBLE);
+                    if (!takingPhoto) colorPickerButton.setVisibility(VISIBLE);
                 }
 
-                if (takingPhoto) applyFilter(selectedFilter);
+                if (takingPhoto) {
+                    Thread thread = new Thread(() -> {
+                        applyFilter(selectedFilter);
+                    });
+                    thread.start();
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -170,23 +179,22 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
             public void onPictureTaken(@NonNull PictureResult result) {
                 byte[] arr = result.getData();
                 savedBitmap = BitmapFactory.decodeByteArray(arr, 0, arr.length);
+
                 //if picture was taken by capturing photo...
                 if (takingPhoto) {
-                    applyFilter(selectedFilter);
-                    camera.setVisibility(GONE);
-                    ivBitmap.setImageBitmap(bitmap);
-                    ivBitmap.setVisibility(VISIBLE);
-                    colorPickerButton.setVisibility(GONE);
-                    galleryButton.setVisibility(GONE);
+                    Thread thread = new Thread(() -> {
+                        applyFilter(selectedFilter);
+                    });
+                    thread.start();
                     showAcceptedRejectedButton(true);
-
-
                 }
+
                 //or if it was captured for colorpicker...
                 else if (pickingColors) {
+
                     int centerColor = savedBitmap.getPixel(savedBitmap.getWidth() / 2, savedBitmap.getHeight() / 2);
                     String colorName = "";
-                    int mainColor = 0;
+                 /*   int mainColor = 0;
                     int redC = centerColor >> 16 & 0xff;
                     int greenC = centerColor >> 8 & 0xff;
                     int blueC = centerColor & 0xff;
@@ -219,12 +227,75 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                     if (!((redC / 64 == greenC / 64) && (redC / 64 == blueC / 64))) {
                         if (mainColor / 64 == 1) colorName = "DARK ".concat(colorName);
                     }
-                    colorText.setText(colorName);
+                    colorText.setText(colorName); */
+
+
+                    double var_R = ((centerColor >> 16 & 0xff) / 255.0);
+                    double var_G = ((centerColor >> 8 & 0xff) / 255.0);
+                    double var_B = ((centerColor & 0xff) / 255.0);
+
+                    double var_Min = Math.min(var_R, Math.min(var_G, var_B));
+                    double var_Max = Math.max(var_R, Math.max(var_G, var_B));
+                    double del_Max = var_Max - var_Min;
+
+                    double V = var_Max;
+                    double H = 0;
+                    double S = 0;
+                    if (del_Max == 0) {
+                        H = 0;
+                        S = 0;
+                    } else {
+                        S = del_Max / var_Max;
+
+                        double del_R = (((var_Max - var_R) / 6) + (del_Max / 2)) / del_Max;
+                        double del_G = (((var_Max - var_G) / 6) + (del_Max / 2)) / del_Max;
+                        double del_B = (((var_Max - var_B) / 6) + (del_Max / 2)) / del_Max;
+
+                        if (var_R == var_Max) H = del_B - del_G;
+                        else if (var_G == var_Max) H = (1.0 / 3.0) + del_R - del_B;
+                        else if (var_B == var_Max) H = (2.0 / 3.0) + del_G - del_R;
+
+                        if (H < 0) H = 0;
+                        if (H > 1) H -= 1;
+
+                        H=H*360;
+                        if ((V>=0.85)&&(S<=0.1)) colorName="WHITE";
+                        else if (V<=0.15) colorName="BLACK";
+                        else if (S<=0.1) colorName="GREY";
+                        else if ((H<15)) colorName="RED";
+                        else if ((H>=15)&&(H<45)&&(V<=50)) colorName="BROWN";
+                        else if ((H>=15)&&(H<45)) colorName="ORANGE";
+                        else if ((H>=45)&&(H<75)) colorName="YELLOW";
+                        else if ((H>=75)&&(H<105)) colorName="LIGHT GREEN";
+                        else if ((H>=105)&&(H<165)) colorName="GREEN";
+                        else if ((H>=165)&&(H<195)) colorName="CYAN";
+                        else if ((H>=195)&&(H<255)) colorName="BLUE";
+                        else if ((H>=255)&&(H<285)) colorName="PURPLE";
+                        else if ((H>=285)&&(H<315)) colorName="MAGENTA";
+                        else if ((H>=315)&&(H<=360)) colorName="PINK";
+                        colorText.setText(colorName);
+                    }
                 }
             }
 
         };
         camera.addCameraListener(cameraListener);
+
+
+        //Loading circle animation
+        circleView = RootView.findViewById(R.id.circleView);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 360);
+        valueAnimator.setInterpolator(new LinearInterpolator());
+        valueAnimator.setDuration(500);
+        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                circleView.setValue((Integer) animation.getAnimatedValue());
+            }
+        });
+        valueAnimator.start();
+        circleView.setVisibility(INVISIBLE);
 
         return RootView;
 
@@ -232,6 +303,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
     //Method for applying a filter to an image from gallery
     public void applyFilter(String selectedFilter) {
+        requireActivity().runOnUiThread(() -> {
+            circleView.setVisibility(VISIBLE);
+            btnOk.setVisibility(GONE);
+            btnCancel.setVisibility(GONE);
+            spinner.setVisibility(GONE);
+            camera.close();
+        });
 
 
         bitmap = savedBitmap.copy(Bitmap.Config.ARGB_8888, true);
@@ -346,7 +424,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                             currentGreenFactor = (int) (var_g * 255);
                             currentBlueFactor = (int) (var_b * 255);
                         }
-
                     }
 
                     if (currentRedFactor < 0) currentRedFactor = 0;
@@ -357,7 +434,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                     if (currentGreenFactor > 255) currentGreenFactor = 255;
                     if (currentBlueFactor > 255) currentBlueFactor = 255;
                     pixels[i] = 0xff000000 | currentRedFactor << 16 | currentGreenFactor << 8 | currentBlueFactor;
+
                 }
+
 
             });
             thread.start();
@@ -374,8 +453,17 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         bitmap.setPixels(pixels, 0, bitmap.getWidth(), 0, 0,
                 bitmap.getWidth(), bitmap.getHeight());
 
-        ivBitmap.setImageBitmap(bitmap);
 
+        requireActivity().runOnUiThread(() -> {
+            camera.setVisibility(GONE);
+            ivBitmap.setImageBitmap(bitmap);
+            circleView.setVisibility(INVISIBLE);
+            btnOk.setVisibility(VISIBLE);
+            btnCancel.setVisibility(VISIBLE);
+            spinner.setVisibility(VISIBLE);
+            ivBitmap.setVisibility(VISIBLE);
+            camera.open();
+        });
 
     }
 
@@ -387,9 +475,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
             btnCancel.setVisibility(VISIBLE);
             btnCapture.setVisibility(GONE);
             colorPickerButton.setVisibility(GONE);
+            ivBitmap.setImageBitmap(bitmap);
+            colorPickerButton.setVisibility(GONE);
+            galleryButton.setVisibility(GONE);
 
         } else {
-            takingPhoto=false;
+            camera.open();
+            takingPhoto = false;
             btnCapture.setVisibility(VISIBLE);
             btnOk.setVisibility(GONE);
             btnCancel.setVisibility(GONE);
@@ -402,7 +494,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     }
 
     //Color picker logic
-    void colorPicker(boolean pickingColors) {
+    void colorPickerToggle(boolean pickingColors) {
         if (timer != null) timer.cancel();
         timer = new Timer();
 
@@ -421,7 +513,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                         else camera.takePicture();
                     }
                 }
-            }, 0, 1500);
+            }, 0, 500);
         }
 
 
@@ -434,14 +526,15 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
             case R.id.btnCapture:
                 if (pickingColors) {
                     pickingColors = false;
-                    colorPicker(pickingColors);
+                    colorPickerToggle(pickingColors);
                 }
                 takingPhoto = true;
                 camera.takePicture();
+
                 break;
             case R.id.colorPicker:
                 pickingColors = !pickingColors;
-                colorPicker(pickingColors);
+                colorPickerToggle(pickingColors);
                 break;
             case R.id.btn_reject:
                 showAcceptedRejectedButton(false);
@@ -457,7 +550,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
             case R.id.gallery:
                 if (pickingColors) {
                     pickingColors = false;
-                    colorPicker(pickingColors);
+                    colorPickerToggle(pickingColors);
                 }
 
                 Fragment galleryFragment = new GalleryFragment();

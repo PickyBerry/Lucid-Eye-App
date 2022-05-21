@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -34,7 +35,6 @@ import com.example.lucideye.R;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Timer;
-
 
 
 public class GalleryFragment extends Fragment implements View.OnClickListener {
@@ -234,8 +234,8 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
                             currentGreenFactor = (int) (var_g * 255);
                             currentBlueFactor = (int) (var_b * 255);
                         }
-
                     }
+
 
                     if (currentRedFactor < 0) currentRedFactor = 0;
                     if (currentGreenFactor < 0) currentGreenFactor = 0;
