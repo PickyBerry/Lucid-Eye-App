@@ -194,40 +194,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
                     int centerColor = savedBitmap.getPixel(savedBitmap.getWidth() / 2, savedBitmap.getHeight() / 2);
                     String colorName = "";
-                 /*   int mainColor = 0;
-                    int redC = centerColor >> 16 & 0xff;
-                    int greenC = centerColor >> 8 & 0xff;
-                    int blueC = centerColor & 0xff;
-
-                    //color identifier
-                    if ((redC / 64 > greenC / 64) && (redC / 64 > blueC / 64)) {
-                        mainColor = redC;
-                        colorName = "RED";
-                    } else if ((greenC / 64 > redC / 64) && (greenC / 64 > blueC / 64)) {
-                        mainColor = greenC;
-                        colorName = "GREEN";
-                    } else if ((blueC / 64 > redC / 64) && (blueC / 64 > greenC / 64)) {
-                        mainColor = blueC;
-                        colorName = "BLUE";
-                    } else if ((redC / 64 == greenC / 64) && (redC / 64 == blueC / 64)) {
-                        mainColor = redC;
-                        if (mainColor / 64 < 1) colorName = "BLACK";
-                        else if (mainColor / 64 < 2) colorName = "GREY";
-                        else colorName = "WHITE";
-                    } else if ((redC / 64 == greenC / 64)) {
-                        mainColor = redC;
-                        colorName = "YELLOW";
-                    } else if ((redC / 64 == blueC / 64)) {
-                        mainColor = redC;
-                        colorName = "PURPLE";
-                    } else if ((greenC / 64 == blueC / 64)) {
-                        mainColor = greenC;
-                        colorName = "TURQUOISE";
-                    }
-                    if (!((redC / 64 == greenC / 64) && (redC / 64 == blueC / 64))) {
-                        if (mainColor / 64 == 1) colorName = "DARK ".concat(colorName);
-                    }
-                    colorText.setText(colorName); */
 
 
                     double var_R = ((centerColor >> 16 & 0xff) / 255.0);
@@ -257,7 +223,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
                         if (H < 0) H = 0;
                         if (H > 1) H -= 1;
-
+                    }
                         H=H*360;
                         if ((V>=0.85)&&(S<=0.1)) colorName="WHITE";
                         else if (V<=0.15) colorName="BLACK";
@@ -274,7 +240,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                         else if ((H>=285)&&(H<315)) colorName="MAGENTA";
                         else if ((H>=315)&&(H<=360)) colorName="PINK";
                         colorText.setText(colorName);
-                    }
+
                 }
             }
 
@@ -371,11 +337,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                             if (H < 0) H = 0;
                             if (H > 1) H -= 1;
                         }
-                        if (selectedFilter.equals("TRITANOPES ASSISTANCE"))
+                        if (selectedFilter.equals("TRITANOPES ASSISTANCE")&&(H>0.17)&&(H<0.75))
                             H = H + 0.1;
-                        else if (selectedFilter.equals("DEUTERANOPES ASSISTANCE"))
-                            H = H + 0.25;
-                        else H = H + 0.3;
+                        else if((H>0.96)||((H>=0)&&(H<=0.417))) {
+                            if (selectedFilter.equals("DEUTERANOPES ASSISTANCE"))
+                                H = H + 0.25;
+                            else H = H + 0.3;
+                        }
                         if (H < 0) H += 1;
                         if (H > 1) H -= 1;
 
