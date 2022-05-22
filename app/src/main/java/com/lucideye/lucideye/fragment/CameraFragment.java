@@ -511,7 +511,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
             case R.id.btn_accept:
 
-                MediaStore.Images.Media.insertImage(requireActivity().getContentResolver(), bitmap, "Vibrant" + Calendar.getInstance().getTime(), "");
+                MediaStore.Images.Media.insertImage(requireActivity().getContentResolver(), bitmap, "LucidEye" + Calendar.getInstance().getTime(), "");
                 Toast.makeText(getActivity(), getString(R.string.saved_to_gallery), Toast.LENGTH_LONG).show();
                 showAcceptedRejectedButton(false);
                 break;

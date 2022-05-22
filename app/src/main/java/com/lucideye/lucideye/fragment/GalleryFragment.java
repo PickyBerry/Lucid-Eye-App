@@ -298,7 +298,7 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.saveButton:
-                MediaStore.Images.Media.insertImage(requireActivity().getContentResolver(), bitmap, "Vibrant" + Calendar.getInstance().getTime(), "");
+                MediaStore.Images.Media.insertImage(requireActivity().getContentResolver(), bitmap, "LucidEye" + Calendar.getInstance().getTime(), "");
                 Toast.makeText(getActivity(), getString(R.string.saved_to_gallery), Toast.LENGTH_LONG).show();
                 break;
 
