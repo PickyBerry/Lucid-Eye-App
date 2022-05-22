@@ -66,6 +66,8 @@
         android:layout_height="match_parent"
         android:keepScreenOn="true"
         android:visibility="visible"
+        android:soundEffectsEnabled="false"
+        app:cameraPlaySounds="false"
         app:cameraAudio="off"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

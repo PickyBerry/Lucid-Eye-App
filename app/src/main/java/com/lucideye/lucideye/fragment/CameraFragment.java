@@ -112,7 +112,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         camera = RootView.findViewById(R.id.camera);
         camera.setLifecycleOwner(getViewLifecycleOwner());
-
+        camera.setPlaySounds(false);
+        camera.setSoundEffectsEnabled(false);
 
         btnCapture.setOnClickListener(this);
         btnOk.setOnClickListener(this);
