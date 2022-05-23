@@ -229,7 +229,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                         if ((V>=0.85)&&(S<=0.1)) colorName="WHITE";
                         else if (V<=0.15) colorName="BLACK";
                         else if (S<=0.1) colorName="GREY";
-                        else if ((H<15)) colorName="RED";
+                        else if (H==0) colorName="PINK";
+                        else if ((H>0)&&(H<15)) colorName="RED";
                         else if ((H>=15)&&(H<45)&&(V<=50)) colorName="BROWN";
                         else if ((H>=15)&&(H<45)) colorName="ORANGE";
                         else if ((H>=45)&&(H<75)) colorName="YELLOW";
@@ -241,6 +242,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                         else if ((H>=285)&&(H<315)) colorName="MAGENTA";
                         else if ((H>=315)&&(H<=360)) colorName="PINK";
                         colorText.setText(colorName);
+
 
                 }
             }
