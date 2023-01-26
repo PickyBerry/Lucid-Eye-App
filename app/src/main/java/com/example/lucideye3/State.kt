@@ -1,0 +1,10 @@
+package com.example.lucideye3
+
+enum class State {
+    CAMERA,
+    CAMERA_WITH_COLORPICKER,
+    SHOWING_CAPTURED_IMAGE,
+    SHOWING_IMAGE_FROM_GALLERY,
+    LOADING_FOR_GALLERY_PIC,
+    LOADING_FOR_CAPTURED_PIC
+}

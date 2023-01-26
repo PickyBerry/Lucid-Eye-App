@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.TutorialFragment">
+
+    <TextView
+        android:id="@+id/upperText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page1_line1"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/upperText2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page2_line1"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/middleText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page1_line2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperText" />
+
+    <TextView
+        android:id="@+id/middleText2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page2_line2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperText2" />
+
+    <TextView
+        android:id="@+id/middleText3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page3_line1"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperText2" />
+
+    <TextView
+        android:id="@+id/lowerText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:alpha="0"
+        android:text="@string/tutorial_page1_line3"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_image_middle" />
+
+    <ImageView
+        android:id="@+id/image_left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="36dp"
+        android:alpha="0"
+        android:src="@drawable/simexample_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/image_middle"
+        app:layout_constraintEnd_toStartOf="@+id/image_middle" />
+
+    <ImageView
+        android:id="@+id/image_left2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="36dp"
+        android:alpha="0"
+        android:src="@drawable/assist_example_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/image_middle2"
+        app:layout_constraintEnd_toStartOf="@+id/image_middle2" />
+
+    <ImageView
+        android:id="@+id/image_middle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="88dp"
+        android:alpha="0"
+        android:src="@drawable/simexample_prota"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middleText" />
+
+    <ImageView
+        android:id="@+id/image_middle2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="156dp"
+        android:alpha="0"
+        android:src="@drawable/assist_example_before"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middleText2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/image_right"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="36dp"
+        android:alpha="0"
+        android:src="@drawable/simexample_trita"
+        app:layout_constraintBottom_toBottomOf="@+id/image_middle"
+        app:layout_constraintStart_toEndOf="@+id/image_middle" />
+
+    <ImageView
+        android:id="@+id/image_right2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="36dp"
+        android:alpha="0"
+        android:src="@drawable/assist_example_after"
+        app:layout_constraintBottom_toBottomOf="@+id/image_middle2"
+        app:layout_constraintStart_toEndOf="@+id/image_middle2" />
+
+    <TextView
+        android:id="@+id/tv_image_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Normal"
+        app:layout_constraintEnd_toEndOf="@+id/image_left"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/image_left"
+        app:layout_constraintTop_toBottomOf="@+id/image_left" />
+
+    <TextView
+        android:id="@+id/tv_image_left2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Original image"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/image_left2"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/image_left2"
+        app:layout_constraintTop_toBottomOf="@+id/image_left2" />
+
+    <TextView
+        android:id="@+id/tv_image_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Protanopia"
+        app:layout_constraintEnd_toEndOf="@+id/image_middle"
+        app:layout_constraintStart_toStartOf="@+id/image_middle"
+        app:layout_constraintTop_toBottomOf="@+id/image_middle" />
+
+    <TextView
+        android:id="@+id/tv_image_middle2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Image as seen by person with protanopia"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/image_middle2"
+        app:layout_constraintStart_toStartOf="@+id/image_middle2"
+        app:layout_constraintTop_toBottomOf="@+id/image_middle2" />
+
+    <TextView
+        android:id="@+id/tv_image_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Tritanopia"
+        app:layout_constraintEnd_toEndOf="@+id/image_right"
+        app:layout_constraintStart_toStartOf="@+id/image_right"
+        app:layout_constraintTop_toBottomOf="@+id/image_right" />
+
+    <TextView
+        android:id="@+id/tv_image_right2"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:alpha="0"
+        android:text="Image with assistance filter as seen by person with protanopia"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/image_right2"
+        app:layout_constraintStart_toStartOf="@+id/image_right2"
+        app:layout_constraintTop_toBottomOf="@+id/image_right2" />
+
+    <Button
+        android:id="@+id/continue_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:alpha="0"
+        android:background="@android:color/transparent"
+        android:text="CONTINUE"
+        android:textColor="#DC4848"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/return_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:alpha="0"
+        android:background="@android:color/transparent"
+        android:text="RETURN TO MENU"
+        android:visibility="gone"
+        android:textColor="#DC4848"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/color_picker_1"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:alpha="0"
+        android:src="@drawable/example_colorpicker_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middleText3" />
+
+    <ImageView
+        android:id="@+id/color_picker_2"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0"
+        android:src="@drawable/example_colorpicker_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middleText3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
