@@ -35,7 +35,6 @@ https://user-images.githubusercontent.com/92033502/215268148-f6bb9d60-dc74-4439-
 * <img src="https://user-images.githubusercontent.com/92033502/215273515-30489133-36c3-4c4c-bf2e-f608ab1fc84a.png" width="150" align="center">
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -44,8 +43,6 @@ https://user-images.githubusercontent.com/92033502/215268148-f6bb9d60-dc74-4439-
 - [x] Refactor to Kotlin w/ clean architecture
 - [ ] Add colorblindness test for proposing the best assistance filter
 - [ ] Multi-language Support
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
