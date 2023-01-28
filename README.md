@@ -1,7 +1,6 @@
 <a name="readme-top"></a>
 ##
-![lucideye](https://user-images.githubusercontent.com/92033502/215266781-960e7c14-fc06-48d7-93eb-6258842df485.png)
-
+<img src="https://user-images.githubusercontent.com/92033502/215266781-960e7c14-fc06-48d7-93eb-6258842df485.png" width="800">
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -10,24 +9,20 @@
 https://user-images.githubusercontent.com/92033502/215268148-f6bb9d60-dc74-4439-95f5-d69341139f0f.mp4
 
 
-This is a free app designed to simulate color-blinded vision and assist color-blind people to differ the colors using real-time camera filters
-You can select one of six filters using the menu at the bottom. First three filters simulate one of three types of color-blindness: Protanopia, Deuteranopia and Tritanopia
+* This is a free app designed to simulate color-blinded vision and assist color-blind people to differ the colors using real-time camera filters
+* You can select one of six filters using the menu at the bottom. First three filters simulate one of three types of color-blindness: Protanopia, Deuteranopia and Tritanopia
 
 
 <img src="https://user-images.githubusercontent.com/92033502/215268438-f1d31ca5-5d8f-4350-b27c-6dc6d3ef09e8.png" width="400">
 
+* Images can be captured at any time or be uploaded from the gallery and have filters applied to them.
+* If you are color-blind, you can select an assistance filter which will help you differ the colours.
 
+<img src="https://user-images.githubusercontent.com/92033502/215273172-7769f489-8f09-4ad4-a539-a79ce0d3083a.png" width="400">
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+* If you are doubting what colour you are looking at, you can turn on the colour picker which tells the real color you are looking at no matter what filter is on.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+<img src="https://user-images.githubusercontent.com/92033502/215273242-c197dd1e-ce02-4ae2-b4a7-d5441ad0ac20.png" width="400">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -35,42 +30,20 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* <img src="https://user-images.githubusercontent.com/92033502/215273384-94715e45-cdfa-4d65-b671-e8ae60b2525b.png" width="150" align="center">
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* <img src="https://user-images.githubusercontent.com/92033502/215273515-30489133-36c3-4c4c-bf2e-f608ab1fc84a.png" width="150" align="center">
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
+- [x] Add color picker for identifying colors
+- [x] Refactor to Kotlin w/ clean architecture
+- [ ] Add colorblindness test for proposing the best assistance filter
 - [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
