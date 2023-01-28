@@ -1,32 +1,18 @@
 <a name="readme-top"></a>
+##
+![lucideye](https://user-images.githubusercontent.com/92033502/215266781-960e7c14-fc06-48d7-93eb-6258842df485.png)
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+This is a free app designed to simulate color-blinded vision and assist color-blind people to differ the colors using real-time camera filters
+You can select one of six filters using the menu at the bottom. First three filters simulate one of three types of color-blindness: Protanopia, Deuteranopia and Tritanopia
+
+![simexample_normal](https://user-images.githubusercontent.com/92033502/215267077-5f60810f-c217-4f64-8b47-b2c0514bb3f7.jpg)
+![simexample_prota](https://user-images.githubusercontent.com/92033502/215267082-0f7f3dde-64b0-4486-8099-424653b56304.jpg)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
