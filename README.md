@@ -6,13 +6,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+https://user-images.githubusercontent.com/92033502/215268148-f6bb9d60-dc74-4439-95f5-d69341139f0f.mp4
+
 
 This is a free app designed to simulate color-blinded vision and assist color-blind people to differ the colors using real-time camera filters
 You can select one of six filters using the menu at the bottom. First three filters simulate one of three types of color-blindness: Protanopia, Deuteranopia and Tritanopia
 
-![simexample_normal](https://user-images.githubusercontent.com/92033502/215267077-5f60810f-c217-4f64-8b47-b2c0514bb3f7.jpg)
-![simexample_prota](https://user-images.githubusercontent.com/92033502/215267082-0f7f3dde-64b0-4486-8099-424653b56304.jpg)
+
+<img src="https://user-images.githubusercontent.com/92033502/215268438-f1d31ca5-5d8f-4350-b27c-6dc6d3ef09e8.png" width="400">
+
+
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
