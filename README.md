@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 ##
-<img src="https://user-images.githubusercontent.com/92033502/215266781-960e7c14-fc06-48d7-93eb-6258842df485.png" width="800">
+<img src="https://user-images.githubusercontent.com/92033502/215266781-960e7c14-fc06-48d7-93eb-6258842df485.png" width="600">
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
